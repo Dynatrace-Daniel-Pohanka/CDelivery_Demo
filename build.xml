@@ -8,10 +8,9 @@
 	<!-- required to build the agent connection string -->
 	<property name="dynatrace.profile.name" value="CDelivery_Demo Dev" />
 	<property name="dynatrace.collector" value="VA1DYNADEVSRV03.local:9998" />
-	<property name="dtagent" 
-		value="-agentpath:/opt/dynatrace/agent/lib64/libdtagent.so=
-		name=Tomcat_CDelivery_Demo_Dev,server=${dynatrace.collector},optionTestRunIdJava=${dtTestrunID}" />
-	<property name="dtTestrunID" value="${dynatrace.testsession.id}" />
+	<property name="dtagent" value="-agentpath:/opt/dynatrace/agent/lib64/libdtagent.so=
+		name=Tomcat_CDelivery_Demo_Dev,server=${dynatrace.collector},optionTestRunIdJava=${dynatrace.testsession.id}" />
+	<!--property name="dtTestrunID" value="${dynatrace.testsession.id}" /-->
 	<!--dynatrace.testsession.id for Bamboo dynatrace plugin versioning -->
 	
 	
