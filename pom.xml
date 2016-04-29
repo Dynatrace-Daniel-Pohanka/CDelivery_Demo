@@ -8,6 +8,8 @@
 	<name>cdelivery_demo Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
 		<!-- Set the version of Dynatrace we are working with -->
 		<dynaTrace.version>6.2</dynaTrace.version>
 
