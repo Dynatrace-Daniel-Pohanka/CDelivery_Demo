@@ -45,7 +45,7 @@
    
   <!-- Test and build all files  -->
   <!-- To run this: use "ant" (default) or "ant run" -->
-  <target name="unitTest" depends="build">
+  <target name="unitTest">
     <junit printsummary="on" fork="yes" haltonfailure="no">
 		<jvmarg value="${dtagent}" />
         <classpath>
