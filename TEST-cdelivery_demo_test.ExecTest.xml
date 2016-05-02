@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="VA1DYNADEVWOR03" name="cdelivery_demo_test.ExecTest" skipped="0" tests="3" time="1.317" timestamp="2016-05-02T23:40:24">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="eclipse.pdebuild.templates" value="/opt/eclipse/plugins/org.eclipse.pde.build_3.9.100.v20150521-1524/templates//" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="os.name" value="Linux" />
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rt.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jsse.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jce.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/charsets.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/rhino.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/jfr.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/classes" />
+    <property name="dtagent" value="-agentpath:/opt/dynatrace/agent/lib64/libdtagent.so=    name=Tomcat_CDelivery_Demo_Dev,server=VA1DYNADEVSRV03.local:9998,optionTestRunIdJava=${dynatrace.testsession.id}" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="/usr/share/ant" />
+    <property name="java.runtime.version" value="1.7.0_91-b02" />
+    <property name="test.build.dir" value="target/classes/" />
+    <property name="user.name" value="danielpohanka" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64" />
+    <property name="ant.project.default-target" value="test" />
+    <property name="ant.project.name" value="cdelivery_demo" />
+    <property name="java.version" value="1.7.0_91" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="test.src.dir" value="src/test/java" />
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="ant.file.cdelivery_demo" value="/home/danielpohanka/git/CDelivery_Demo_Copy/build.xml" />
+    <property name="java.class.version" value="51.0" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="/usr/lib/jvm/java-7-openjdk-amd64/jre" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="/home/danielpohanka/git/CDelivery_Demo_Copy/build.xml" />
+    <property name="os.version" value="3.13.0-65-generic" />
+    <property name="dynatrace.collector" value="VA1DYNADEVSRV03.local:9998" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="24.91-b01" />
+    <property name="org.omg.PortableInterceptor.ORBInitializerClass.com.dynatrace.diagnostics.agent.introspection.RMIIIOPORBInitializer" value="" />
+    <property name="ant.library.dir" value="/usr/share/ant/lib" />
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+    <property name="ant.file.type.cdelivery_demo" value="file" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
+    <property name="eclipse.pdebuild.scripts" value="/opt/eclipse/plugins/org.eclipse.pde.build_3.9.100.v20150521-1524/scripts//" />
+    <property name="user.home" value="/home/danielpohanka" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner cdelivery_demo_test.ExecTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/danielpohanka/git/CDelivery_Demo_Copy/TEST-cdelivery_demo_test.ExecTest.xml crashfile=/home/danielpohanka/git/CDelivery_Demo_Copy/junitvmwatcher1968515180772600593.properties propsfile=/home/danielpohanka/git/CDelivery_Demo_Copy/junit2491985337283632117.properties" />
+    <property name="java.class.path" value="/usr/share/java/junit.jar:/usr/share/java/hamcrest-core-1.3.jar:/home/danielpohanka/git/CDelivery_Demo_Copy/target/classes:/home/dynatrace/Development/mytomcat/lib/servlet-api.jar:/home/dynatrace/Development/mysql/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar:/usr/share/ant/lib/junit-4.12.jar:/usr/share/java/ant-launcher-1.9.3.jar:/usr/share/java/ant-1.9.3.jar:/usr/share/java/ant-junit-1.9.3.jar:/usr/share/java/ant-junit4-1.9.3.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.3 compiled on April 8 2014" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="java.vm.specification.version" value="1.7" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="eclipse.pdebuild.home" value="/opt/eclipse/plugins/org.eclipse.pde.build_3.9.100.v20150521-1524/.//" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/ext:/usr/java/packages/lib/ext" />
+    <property name="user.dir" value="/home/danielpohanka/git/CDelivery_Demo_Copy" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="basedir" value="/home/danielpohanka/git/CDelivery_Demo_Copy" />
+    <property name="ant.java.version" value="1.7" />
+    <property name="ant.core.lib" value="/usr/share/java/ant-1.9.3.jar" />
+    <property name="main.build.dir" value="target/classes/" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="main.src.dir" value="src/main/java" />
+    <property name="java.specification.version" value="1.7" />
+    <property name="ant.project.invoked-targets" value="unitTest" />
+    <property name="dynatrace.profile.name" value="CDelivery_Demo Dev" />
+  </properties>
+  <testcase classname="cdelivery_demo_test.ExecTest" name="testProblem1" time="0.031" />
+  <testcase classname="cdelivery_demo_test.ExecTest" name="testWebServiceCalls" time="0.0" />
+  <testcase classname="cdelivery_demo_test.ExecTest" name="testDBFunctions" time="0.95" />
+  <system-out><![CDATA[Bob Jenkins
+Ralph Volume
+Fred Tyler
+Flynn Toranado
+Sylvia West
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

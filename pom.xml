@@ -15,10 +15,10 @@
 		<dynaTrace.username>admin</dynaTrace.username>
 		<dynaTrace.password>admin</dynaTrace.password>
 		<dynaTrace.serverUrl>http://va1dynadevsrv03.local:8020</dynaTrace.serverUrl>
-		<dynaTrace.profileName>CDelivery_Demo Dev</dynaTrace.profileName>
+		<dynaTrace.profileName>CDelivery_Demo DevBob</dynaTrace.profileName>
 		<dynaTrace.collector>VA1DYNADEVSRV03.local</dynaTrace.collector>
 		<dynaTrace.versionBuild>${BUILD_ID}</dynaTrace.versionBuild>
-		<dynaTrace.systemProfile>CDelivery_Demo Dev</dynaTrace.systemProfile>
+		<dynaTrace.systemProfile>CDelivery_Demo DevBob</dynaTrace.systemProfile>
 
 		<!-- Establish what category we plan on testing, environmentally aware -->
 		<dynaTrace.testCategory>unit</dynaTrace.testCategory>
@@ -157,7 +157,7 @@
 							<versionMilestone>1</versionMilestone>
 							<versionBuild>${BUILD_ID}</versionBuild>
 							<category>unit</category>
-							<profileName>CDelivery_Demo_Dev</profileName>
+							<profileName>CDelivery_Demo_DevBob</profileName>
 							<username>${dynaTrace.username}</username>
 							<password>${dynaTrace.password}</password>
 							<serverUrl>${dynaTrace.serverUrl}</serverUrl>
