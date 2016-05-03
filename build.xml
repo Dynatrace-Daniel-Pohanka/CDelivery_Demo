@@ -4,12 +4,30 @@
   <property name="main.src.dir" value="src/main/java" />
   <property name="test.build.dir" value="target/classes/" />
   <property name="test.src.dir" value="src/test/java" />
+	
+	 <!-- Settings for dT Server Connection (also in dtTask.xml) -->
+	<property name="dynatrace.server.proto" value="https" />
+	<property name="dynatrace.server.name" value="VA1DYNADEVSRV03.local" />
+	<property name="dynatrace.server.port" value="8020" />
+	<property name="dynatrace.server.user" value="admin" />
+	<property name="dynatrace.server.pass" value="admin" />
+		
+	  <!-- Setting defaults for Test Automation -->
+	<property name="dtVersionMajor" value="1" />
+	<property name="dtVersionMinor" value="0" />
+	<property name="dtVersionRevision" value="0" />
+	<property name="dtVersionMilestone" value="Milestone 1" />
+	<property name="dtVersionBuild" value="124" />
+	<property name="dtTestCategory" value="unit" /> <!-- use one of [unit, uidriven, performance, load, webapi] -->
+	<property name="dtBaseDir" value="lib/dynaTrace" />
+	<import file="lib/dynaTrace/dtTaskDefs.xml"/>
+
   	
 	<!-- required to build the agent connection string -->
 	<property name="dynatrace.profile.name" value="CDelivery_Demo Dev" />
 	<property name="dynatrace.collector" value="VA1DYNADEVSRV03.local:9998" />
 	<property name="dtagent" value="-agentpath:/opt/dynatrace/agent/lib64/libdtagent.so=
-			name=Tomcat_CDelivery_Demo_Dev,server=${dynatrace.collector},optionTestRunIdJava=${dynatrace.testsession.id}" />
+			name=Tomcat_CDelivery_Demo_Dev,server=${dynatrace.collector}" />
 	<!--property name="dtTestrunID" value="${dynatrace.testsession.id}" /-->
 	<!--dynatrace.testsession.id for Bamboo dynatrace plugin versioning -->
 	
@@ -26,7 +44,21 @@
   </path>  
 	
 	  	
-  <target name="test" depends="unitTest, clean" />
+	<target name="StartTestForCategorizedTest">
+		
+		<DtStartTest
+			marker="${bamboo.build.key}"
+			versionMajor="${major.number}"
+			versionMinor="${minor.number}"
+			versionRevision="${revision.number}"
+			versionBuild="${build.number}"
+			category="unit"
+			debug="true"/>
+
+		<echo>TestrunID: ${dtTestrunID}</echo>
+	</target>
+
+	<target name="test" depends="unitTest, clean" />
 
   <target name="compile" >
     <mkdir dir="${main.build.dir}"/>
@@ -45,9 +77,9 @@
    
   <!-- Test and build all files  -->
   <!-- To run this: use "ant" (default) or "ant run" -->
-  <target name="unitTest" depends="build">
+  <target name="unitTest" depends="build, StartTestForCategorizedTest">
     <junit printsummary="on" fork="yes" haltonfailure="no">
-		<jvmarg value="${dtagent}" />
+		<jvmarg value="${dtagent},optionTestRunIdJava=${dtTestrunID}" />
         <classpath>
           <path refid="classpath.test" />
           <pathelement location="${test.build.dir}"/>
