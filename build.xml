@@ -48,10 +48,10 @@
 		
 		<DtStartTest
 			marker="${bamboo.build.key}"
-			versionMajor="${major.number}"
-			versionMinor="${minor.number}"
-			versionRevision="${revision.number}"
-			versionBuild="${build.number}"
+			versionMajor="1"
+			versionMinor="1"
+			versionRevision="0"
+			versionBuild="${bamboo.build.Number}"
 			category="unit"
 			debug="true"/>
 
