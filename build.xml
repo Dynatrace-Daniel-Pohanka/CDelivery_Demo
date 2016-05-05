@@ -132,6 +132,9 @@
         <property name="jmeter.save.saveservice.output_format" value="xml"/>
       	<property name="versionBuild" value="${bamboo.build.Number}"/>
       	<property name="testrunID" value="${dtTestrunID}"/>
+      	<property name="users" value="10"/>
+      	<property name="rampUp" value="2"/>
+      	<property name="loopCount" value="100"/>
         <testplans dir="${basedir}/TestPlan" includes="*.jmx"/>      	
       </jmeter>
       <xslt 
