@@ -35,13 +35,18 @@
   <path id="classpath.base">
   	<pathelement location="/home/dynatrace/Development/mytomcat/lib/servlet-api.jar"/>
   	<pathelement location="/home/dynatrace/Development/mysql/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar"/> 
+  	<pathelement location="${ant.home}/lib/ant-jmeter-1.1.1.jar"/> 
+  	<pathelement location="${ant.home}/lib/*.jar"/> 
   </path>
   <path id="classpath.test">
   	<pathelement location="${ant.home}/lib/junit-4.11.jar" />
     <pathelement location="/usr/share/java/hamcrest-core-1.3.jar" />
   	<pathelement location="${main.build.dir}"/>
     <path refid="classpath.base" />
-  </path>  
+  </path>	
+  <path id="jmeter.path">
+	 <fileset dir="/usr/share/jmeter/apache-jmeter-2.13/extras" includes="/*.jar" />
+  </path> 
 	
 	  	
 	<target name="StartTestForCategorizedTest">
@@ -53,7 +58,23 @@
 			versionRevision="0"
 			versionBuild="${bamboo.build.Number}"
 			category="unit"
+			profilename="CDelivery_Demo Dev"
 			debug="true"/>
+
+		<echo>TestrunID: ${dtTestrunID}</echo>
+	</target>
+	
+	<target name="RegisterDTWebApiTest">
+		
+		<DtStartTest
+			marker="${bamboo.build.key}"
+			versionMajor="1"
+			versionMinor="1"
+			versionRevision="0"
+			versionBuild="${bamboo.build.Number}"
+			category="webAPI"
+			profilename="CDelivery_Demo Test"
+			debug="true"/>			
 
 		<echo>TestrunID: ${dtTestrunID}</echo>
 	</target>
@@ -92,6 +113,32 @@
         </batchtest>
     </junit>
   </target>
+	
+  <target name="run-performance-tests"  depends="build, RegisterDTWebApiTest">
+      <delete dir="${basedir}/testTarget" quiet="true" failonerror="false"/>
+		<mkdir dir="${basedir}/testTarget"/>    
+    	<taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
+    	<!--taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask" classpathref="jmeter.path" /-->
+      <echo message="Running load tests in testing.xml"/>
+      <jmeter
+       jmeterhome="/usr/share/jmeter/apache-jmeter-2.13"
+        resultlog="${basedir}/testTarget/JMeterResults.xml">
+        <jvmarg value="-Xincgc"/>
+        <jvmarg value="-Xmx512m"/>
+        <jvmarg value="-Dproperty=value"/>
+        <property name="request.threads" value="5"/>
+        <property name="request.loop" value="50"/>
+        <property name="jmeter.save.saveservice.assertion_results" value="all"/>
+        <property name="jmeter.save.saveservice.output_format" value="xml"/>
+      	<property name="versionBuild" value="${bamboo.build.Number}"/>
+      	<property name="testrunID" value="${dtTestrunID}"/>
+        <testplans dir="${basedir}/TestPlan" includes="*.jmx"/>      	
+      </jmeter>
+      <xslt 
+      	in="${basedir}/testTarget/JMeterResults.xml"
+        out="${basedir}/testTarget/Result_One.html"
+        style="/usr/share/jmeter/apache-jmeter-2.13/extras/jmeter-results-detail-report_21.xsl"/>
+    </target>
    
   <!-- delete all class files -->
   <!-- To run this: use "ant clean" -->
