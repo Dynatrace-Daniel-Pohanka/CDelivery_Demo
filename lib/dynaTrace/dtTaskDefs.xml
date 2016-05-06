@@ -12,7 +12,7 @@
 	<property name="dtUsername" value="admin" />
 	<property name="dtPassword" value="admin" />
 	<property name="dtServerUrl" value="http://VA1DYNADEVSRV03.local:8020" />
-	<property name="dtProfile" value="CDelivery_Demo Test" />
+	<property name="dtProfile" value="CDelivery_Demo_Test_Bamboo" />
 
 	<!-- dtSessionNameProperty: Ant Property that will be used to store the Session Name for e.g.: Start/Stop Recording -->
 	<property name="dtSessionNameProperty" value="SessionName" />
