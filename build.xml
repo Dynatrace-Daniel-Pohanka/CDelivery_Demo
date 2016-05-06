@@ -98,9 +98,10 @@
    
   <!-- Test and build all files  -->
   <!-- To run this: use "ant" (default) or "ant run" -->
-  <target name="unitTest" depends="build, StartTestForCategorizedTest">
+  <target name="unitTest" depends="build">
     <junit printsummary="on" fork="yes" haltonfailure="no">
-		<jvmarg value="${dtagent},optionTestRunIdJava=${dtTestrunID}" />
+		<!--jvmarg value="${dtagent},optionTestRunIdJava=${dtTestrunID}" /-->
+    	<jvmarg value="${dtagent},optionTestRunIdJava=${dynatrace.testsession.id}" />
         <classpath>
           <path refid="classpath.test" />
           <pathelement location="${test.build.dir}"/>
@@ -114,7 +115,7 @@
     </junit>
   </target>
 	
-  <target name="run-performance-tests"  depends="build, RegisterDTWebApiTest">
+  <target name="run-performance-tests">
       <delete dir="${basedir}/testTarget" quiet="true" failonerror="false"/>
 		<mkdir dir="${basedir}/testTarget"/>    
     	<taskdef name="jmeter" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask"/>
@@ -131,10 +132,11 @@
         <property name="jmeter.save.saveservice.assertion_results" value="all"/>
         <property name="jmeter.save.saveservice.output_format" value="xml"/>
       	<property name="versionBuild" value="${bamboo.build.Number}"/>
-      	<property name="testrunID" value="${dtTestrunID}"/>
-      	<property name="users" value="10"/>
-      	<property name="rampUp" value="2"/>
-      	<property name="loopCount" value="100"/>
+      	<!--property name="testrunID" value="${dtTestrunID}"/-->
+      	<property name="testrunID" value="${dynatrace.testsession.id}"/>
+      	<property name="users" value="${bamboo.jmeter.users}"/> 
+      	<property name="rampUp" value="${bamboo.jmeter.rampUp}"/> 
+      	<property name="loopCount" value="${bamboo.jmeter.loopCount}"/>  
         <testplans dir="${basedir}/TestPlan" includes="*.jmx"/>      	
       </jmeter>
       <xslt 
